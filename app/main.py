@@ -1,15 +1,22 @@
 from fastapi import FastAPI, Request
-from api.ip import router as ip_router
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
-# This loads /api/ip from your router file
-app.include_router(ip_router, prefix="/api")
+@app.get("/")
+def read_root():
+    return { "msg": "Hello local docker"}
+
+@app.get("/api/ip")
+def ip(request: Request):
+    return { "ip": request.client.host}
 
 
+@app.get("/ip", response_class=HTMLResponse)
+def ip(request: Request):
+    return f"<h1>Din ip är {request.client.host}</h1>"
 
-
-
-
-
+@app.get("/hello")
+def hello():
+    return { "msg": "Hello there"}
 
