@@ -7,7 +7,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
-    return { "msg": "Hello!", "v": "0.1" }
+    return { "msg": "KAJ KARAOKE!", "v": "0.1" }
 
 
 @app.get("/items/{id}")
