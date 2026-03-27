@@ -1,20 +1,8 @@
-from fastapi import FastAPI
-
-from app.api.routes import router as api_router
+from fastapi import FastAPI, Request
 
 app = FastAPI()
-app.include_router(api_router, prefix="/api")
 
-@app.get("/")
-def read_root():
-    return { "msg": "KAJ KARAOKE!", "v": "0.1" }
-
-
-@app.get("/items/{id}")
-def read_item(item_id: int, q: str = None):
-    return {"id": id, "q": q}
-
-
-
-
+@app.get("/api/ip")
+async def read_ip(request: Request):
+    return {"client_ip": request.client.host}
 
