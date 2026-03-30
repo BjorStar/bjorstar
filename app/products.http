@@ -1,0 +1,46 @@
+@apiUrl = blablabla
+
+
+
+
+##Get all products
+
+
+Get {{apiUrl}}
+
+##Get one product products
+
+Get {{apiUrl}} /1002
+
+
+##Create new product
+
+POST {{ApiUrl}}
+Content-Type: application/json
+
+
+
+{
+
+    "name": "Jeans"
+    "price" : 49
+}
+
+
+
+Update product
+
+PATCH {{apiUrl}}/1001
+
+{
+
+
+    "price" : 39
+}
+
+
+
+##DELETE product
+DELETE {{apiUrl}} /1004
+
+
