@@ -27,6 +27,6 @@ def ip(request: Request):
 def ip(request: Request):
     return f"<h1>Din ip är {request.client.host}</h1>"
 
-@app.get("/rooms")
+@app.get("/hello")
 def hello():
     return { "msg": "Rooms available: Normal - Super - Super Mega - Super Duper Mega"}
